@@ -1,0 +1,301 @@
+<div (click)="handleOffClick()">
+<nav class = "navbar navbar-default navbar-fixed-top navbar-rooster" role = "navigation"> 
+    <div class = "navbar-header" style="width:100%">
+        <div *ngIf="isUserLoggedIn==false" style="float:left;">
+            <a class="pull-left"><img src="../assets/ab_logo.png" class="logo"></a>
+        </div>
+        <div *ngIf="isUserLoggedIn==false" style="float:left; width:40%">
+            <a [routerLink]="['home']" class = "navbar-brand navbar-header-custom">Rooster</a>
+        </div>
+        <div *ngIf="isUserLoggedIn==true" style="float:left;">
+            <a class="pull-left"><img src="{{ userImg }}" class="logo"></a>
+        </div>
+        <div *ngIf="isUserLoggedIn==true" style="float:left; width:40%">
+            <a [routerLink]="['profile']" 
+                (click)="makeActive('Profile');" 
+                class = "navbar-brand navbar-header-custom">{{ firstName }}</a>
+        </div>
+        <div *ngIf="isUserLoggedIn==true" style="float:left; width:40%">
+            <form class="navbar-form navbar-left search-custom" role="search">
+                <div class="inner-addon left-addon">
+                    <input #searchText 
+                        class="form-control search-bar-custom" 
+                        placeholder="Search"
+                        (keyup.enter)="triggerSearch(searchText.value)"/>
+                    <a><i class="glyphicon glyphicon-search search-icon-custom"></i></a>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="isUserLoggedIn==false" style="float:right; cursor:pointer">
+            <a (click)="handleLogin()" class = "navbar-brand navbar-header-custom-right">Log In</a>
+        </div>
+        <div *ngIf="isUserLoggedIn==false" style="float:right;">
+            <a [routerLink]="['signUp']" (click)="setActiveFlagsFalse()" 
+                class = "navbar-brand navbar-header-custom-right">Sign Up</a>
+        </div>
+        <div *ngIf="isUserLoggedIn==true" style="float:right;cursor:pointer">
+            <a (click)="logout();" 
+                class = "navbar-brand navbar-header-custom">Logout</a>
+        </div>
+        <div *ngIf="isUserLoggedIn==true">
+            <!--<div class ="userDetailsDiv">
+                <a class="pull-left"><img src="/../assets/ab_logo.png" class="userDetailsImg"></a>
+            </div>-->
+            <div style="float:right; padding-right: 30px; max-width: 60px">
+                <div id="nav">
+                    <div (click)="toggleNotifications();" id="notification_li">
+                        <a id="notificationLink">
+                            <span *ngIf="notificationCount>0" id="notification_count">{{ notificationCount }}</span>
+                            <span class="glyphicon glyphicon-bell notification-custom">
+                            </span>
+                        </a>
+                        <div *ngIf="showNotifications==true" id="notificationContainer">
+                        <div id="notificationTitle">Notifications</div>
+                        <div id="notificationsBody" class="notifications"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </nav>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li [ngClass] = "{active:sideNav.isHome}">
+                    <a *ngIf="sideNav.isHome==true" 
+                        (click)="makeActive('Home')" 
+                        [routerLink]="['home']">
+                            <img src="../assets/icon_home_active.png" 
+                                class="side-nav-icon">   Home</a>
+                    <a *ngIf="sideNav.isHome==false" 
+                        (click)="makeActive('Home')" 
+                        [routerLink]="['home']">
+                            <img src="../assets/icon_home.png" 
+                                class="side-nav-icon">   Home</a>
+                </li>
+                <li [ngClass] = "{active:sideNav.isPromotions}">
+                    <a *ngIf="sideNav.isPromotions==true" 
+                        (click)="validatePromotions();">
+                            <img src="../assets/icon_promotions_active.png" 
+                                class="side-nav-icon">   Promotions</a>
+                    <a *ngIf="sideNav.isPromotions==false" 
+                        (click)="validatePromotions();">
+                            <img src="../assets/icon_promotions.png" 
+                            class="side-nav-icon">   Promotions</a>
+                </li>
+                <li [ngClass] = "{active:sideNav.isComplaints}">
+                    <a *ngIf="sideNav.isComplaints==true" 
+                        (click)="validateComplaints();">
+                            <img src="../assets/icon_complaints_active.png" 
+                            class="side-nav-icon">   Speak Up</a>
+                    <a *ngIf="sideNav.isComplaints==false" 
+                        (click)="validateComplaints();">
+                            <img src="../assets/icon_complaints.png" 
+                            class="side-nav-icon">   Speak Up</a>
+                </li>
+                <li *ngIf="isUserLoggedIn==true" 
+                    [ngClass] = "{active:sideNav.isProfile}">
+                    <a *ngIf="sideNav.isProfile==true" 
+                    (click)="makeActive('Profile')" 
+                    [routerLink]="['profile']">
+                    <img src="../assets/icon_profile_active.png" 
+                    class="side-nav-icon">   User Profile</a>
+                    <a *ngIf="sideNav.isProfile==false" 
+                    (click)="makeActive('Profile')" 
+                    [routerLink]="['profile']">
+                    <img src="../assets/icon_profile.png" 
+                    class="side-nav-icon">   User Profile</a>
+                </li>
+                <li *ngIf="isUserLoggedIn==true" 
+                [ngClass] = "{active:sideNav.isPayment}">
+                    <a *ngIf="sideNav.isPayment==true" 
+                    (click)="makeActive('Payment')" 
+                    [routerLink]="['payment']">
+                     <img src="../assets/icon_wallet_active.png" 
+                    class="side-nav-icon">   Wallet</a>
+                    <a *ngIf="sideNav.isPayment==false" 
+                    (click)="makeActive('Payment')" 
+                    [routerLink]="['payment']">
+                    <img src="../assets/icon_wallet.png" 
+                    class="side-nav-icon">   Wallet</a> 
+                </li>
+                <li [ngClass] = "{active:sideNav.isInfo}">
+                    <a *ngIf="sideNav.isInfo==true" 
+                        (click)="makeActive('Info')" 
+                        [routerLink]="['info']">
+                        <img src="../assets/icon_terms_active.png" 
+                        class="side-nav-icon">   Info</a>
+                    <a *ngIf="sideNav.isInfo==false" 
+                        (click)="makeActive('Info')" 
+                        [routerLink]="['info']">
+                        <img src="../assets/icon_terms.png" 
+                        class="side-nav-icon">   Info</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                      <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+                <div *ngIf="isUserLoggedIn==true" id="widget">
+                    <div id="widget_div">
+                        <div *ngIf="widget.showWidget==true" id="widgetContainer">
+                            <div class="navbar-widget"> 
+                                <div class = "widget-header"> {{ widget.navHeader }} </div>
+                                <div (click) = "closeWidget();"  class = "widget-close">
+                                    <img src="../assets/icon_cancel.png">
+                                </div>
+                            </div>
+                        
+                            <div class="formDiv">
+                                <div *ngIf="fileUploadType=='IMG'" class="previewDiv">  
+                                    <img id="previewImg" src="" alt="">
+                                </div> 
+                                
+                                <div *ngIf="fileUploadType=='VID'" class="previewDiv">  
+                                    <video id="previewVid" src="" alt=""></video>
+                                </div> 
+                                
+                                <div *ngIf="fileUploadType=='AUD'" class="previewDiv">   
+                                    <audio id="previewAud" src="" alt=""></audio>
+                                </div> 
+                                <div *ngIf="fileUploadType==null">
+                                    <input type="file" 
+                                        #img 
+                                        name="img" 
+                                        style="opacity: 0" 
+                                        accept="image/*" 
+                                        id="imgUploadField"
+                                        (change)="imgChangeEvent($event);"/>
+                                    <input type="file" 
+                                        #video 
+                                        name="video" 
+                                        style="opacity: 0" 
+                                        accept="video/*" 
+                                        id="videoUploadField"
+                                        (change)="vidChangeEvent($event);"/>
+                                    <input type="file" 
+                                        #audio 
+                                        name="audio" 
+                                        style="opacity: 0" 
+                                        accept="audio/*" 
+                                        id="audioUploadField"
+                                        (change)="audChangeEvent($event);"/>
+                                    <div class="formImg"><a>
+                                        <img src = "../assets/icon_camera_active.png" 
+                                            (click)="img.click();"
+                                            class="widget-icon">
+                                        </a></div>
+                                    <div class="formImg"><a>
+                                        <img src = "../assets/icon_video_active.png" 
+                                            (click)="video.click();"
+                                            class="widget-icon">
+                                        </a></div>
+                                    <div class="formImg"><a>
+                                        <img src = "../assets/icon_audio_active.png" 
+                                            (click)="audio.click();"
+                                            class="widget-icon">
+                                        </a></div>
+                                    <div class="formImgText">Add a file of your choice</div>
+                                </div>
+                                <div class="widgetInput">
+                                <input 
+                                    class="form-control widget-control complaint-title" 
+                                    id="complaintTitle"
+                                    [(ngModel)] = "complaintTitle" 
+                                    name="complaintTitle" 
+                                    placeholder="{{ widget.titleDescription }}" 
+                                    type="text"/>
+                                <input 
+                                    class="form-control widget-control form-location" 
+                                    name="complaintLocation" 
+                                    placeholder="Add your location" 
+                                    type="text"
+                                    [(ngModel)] = "address"
+                                    (setAddress) = "getAddress($event)" googleplace/>
+                                <input 
+                                    class="form-control widget-control form-tags" 
+                                    id="tags" 
+                                    [(ngModel)] = "tags"
+                                    name="tags" 
+                                    placeholder="Add tags, use space to seperate" 
+                                    type="text"/>
+                                <input 
+                                    class="form-control widget-control form-complaint-desc" 
+                                    id="complaintDesc" 
+                                    [(ngModel)] = "complaintDesc"
+                                    name="complaintDesc" 
+                                    placeholder="{{ widget.description }}" 
+                                    type="text"/>
+                                <div  class="widget-button">
+                                    <button 
+                                        class="btn btn-primary btn-widget" 
+                                        name="submit" 
+                                        type="submit"
+                                        (click)="submitRoost();">
+                                    Submit
+                                    </button>
+                                </div>  
+                                </div>
+                            </div>
+        
+                        </div>
+                </div>
+                <div *ngIf="widget.showAddButtons==true" id="widgetButtonPromotion">
+                     <button type="button" 
+                         (click)="showPromotionDiv()" 
+                        class="btn btn-default btn-noBorder">
+                             Post Promotion     <img src="../assets/icon_promotions_active.png" width="20" />
+                     </button>
+                </div>
+                <div *ngIf="widget.showAddButtons==true" id="widgetButtonComplaint">
+                     <button type="button" 
+                         (click)="showComplaintDiv()"
+                        class="btn btn-default btn-noBorder">
+                             Speak Up      <img src="../assets/icon_complaints_active.png" width="20" />
+                     </button>
+                </div>
+                <div *ngIf="widget.showPlus==true" id="widgetButtonPlus">
+                    <button type="button" 
+                         (click)="togglePlus()"
+                        class="btn btn-info btn-circle btn-xl">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </button>
+                </div>
+                <div *ngIf="widget.showPlus==false" id="widgetButtonCross">
+                    <button type="button" 
+                         (click)="togglePlus()"
+                        class="btn btn-info btn-circle btn-xl">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    </div>
+    <div class="loginModal">
+    <modal #loginModal>
+         <modal-header>
+            <h4>&nbsp;Please login to continue</h4>
+        </modal-header>
+        <modal-content>
+        </modal-content>
+        <modal-footer>
+            <button class="btn btn-link btn-sg" (click)="handleLogin();loginModal.close();">Login</button>
+        </modal-footer>
+    </modal>
+    </div>
+
+    <simple-notifications [options]="options"></simple-notifications>

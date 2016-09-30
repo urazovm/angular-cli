@@ -1,0 +1,39 @@
+<md-card class="demo-card demo-basic">
+  <md-toolbar color="primary">Sign Up</md-toolbar>
+  <md-card-content>
+    <form>
+      <md-input class="demo-full-width" placeholder="Please enter you details" disabled value="">
+      </md-input>
+      <br/>
+      <label class="control-label">
+       <br/>
+       Upload Profile Picture
+      </label>
+      <input type="file" name="pic" accept="image/*">
+      <br/>
+      <br/>
+      <table style="width: 100%" cellspacing="0"><tr>
+        <td><md-input [(ngModel)]="user.first_name" name="first_name" placeholder="First name" style="width: 100%"></md-input></td>
+        <td><md-input [(ngModel)]="user.last_name" name="last_name" placeholder="Last Name" style="width: 100%"></md-input></td>
+      </tr></table>
+      <br/>
+       <md-radio-group [(ngModel)]="user.gender" name="gender">
+        <md-radio-button value="0">Male</md-radio-button>
+        <md-radio-button value="1">Female</md-radio-button>
+      </md-radio-group>
+      <table style="width: 100%" cellspacing="0"><tr>
+        <td><md-input [(ngModel)]="user.email" name="email" class="demo-full-width" placeholder="Email"></md-input></td>
+        <td><md-input [(ngModel)]="user.mobile" name="mobile" class="demo-full-width" placeholder="Mobile#"></md-input></td>
+        <td><md-input [(ngModel)]="user.dob" name="dob" class="demo-full-width" placeholder="Date of Birth">
+          <md-hint align="end">dd/mm/yyyy</md-hint>
+        </md-input></td>
+      </tr></table>
+      <br/>
+      <div  class="buttonWrapper">
+       <button class="btn btn-lg btn-social btn-facebook" (click)="onFacebookSignUpClick()">
+	        <i class="fa fa-facebook fa-fw"></i>Sign up with Facebook
+	    </button>
+      </div>
+    </form>
+  </md-card-content>
+</md-card>
