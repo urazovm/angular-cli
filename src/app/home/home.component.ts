@@ -1,4 +1,4 @@
-import {OnInit, Component} from '@angular/core';
+import {OnInit, Component, ViewContainerRef, ViewChild} from '@angular/core';
 import {PaginationControlsCmp, PaginatePipe} from 'ng2-pagination';
 import {CacheService} from 'ng2-cache/ng2-cache';
 
@@ -6,6 +6,8 @@ import {ProfileFeed} from '../feed/feed.component';
 import {RoostService} from '../services/roost.service';
 import {Roost} from '../shared/roost';
 import {NotificationsService} from '../notifications/notifications.service';
+import {Modal} from 'ng2-modal'
+
 
 @Component({
     selector: 'home',
@@ -14,6 +16,12 @@ import {NotificationsService} from '../notifications/notifications.service';
 })
 export class HomeComponent extends ProfileFeed implements OnInit{
     header = "Home Page";
+    @ViewChild('userActionsModal') 
+    userActionsModal: Modal;
+    @ViewChild('commentsModal') 
+    commentsModal: Modal;
+    @ViewChild('detailModal') 
+    detailModal: Modal;
 
     constructor(private roostService: RoostService,
             private cacheService: CacheService,

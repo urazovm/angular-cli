@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer, Input, HostListener, HostBinding, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, HostListener, HostBinding, OnInit, ViewChild } from '@angular/core';
 import {Routes, Router, RouterModule} from '@angular/router';
 import {NgClass, NgStyle} from '@angular/common';
 import {HttpModule} from '@angular/http';
@@ -15,7 +15,6 @@ import {Roost} from './shared/roost';
 import {Tag} from './shared/tag';
 import {GoogleplaceDirective} from './directives/googleplace.directive';
 
-import {ModalModule } from 'ng2-modal';
 import {NotificationsService} from './notifications/notifications.service';
 import {SimpleNotificationsComponent} from './notifications/simple-notifications.component';
 
@@ -24,9 +23,9 @@ const URL = "http://52.43.46.127:80/api/roost";
 @Component({
     selector: 'my-app',
     templateUrl: 'app.component.html',
-    providers: [UserService, RoostService, SessionService, HttpModule, ModalModule, RouterModule, 
-        FacebookService, SideNavDisplay, Widget, Roost],
-    styles: ['./css/styles.css']
+    providers: [UserService, RoostService, SessionService, HttpModule,
+        RouterModule, FacebookService, SideNavDisplay, Widget, Roost, ViewChild],
+    styles: ['app.component.css']
 })
 export class AppComponent implements OnInit{
 
@@ -81,13 +80,14 @@ export class AppComponent implements OnInit{
             private _sessionService: SessionService,
             private userService: UserService,
             private roost: Roost,
-            private _service: NotificationsService){
+            private _service: NotificationsService,
+            private viewChild: ViewChild){
         let fbParams: FacebookInitParams = {
                         appId: '1730242673902791',
                         xfbml: true,
                         version: 'v2.7'
                     };
-        // this.fb.init(fbParams);
+        this.fb.init(fbParams);
         if(null != this._cacheService.get('accessTokenRooster')){
             this.isUserLoggedIn = true;
             console.log(this._cacheService.get('accessTokenRooster'));

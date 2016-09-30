@@ -3,8 +3,8 @@ declare var moment:any;
 
 @Component({
     selector: 'date-picker',
-    templateUrl: 'app/datepicker.html',
-	styleUrls: ['app/datepicker.css'],
+    templateUrl: 'datepicker.html',
+	styleUrls: ['datepicker.css'],
 	outputs: ['selectedDate']
 })
 

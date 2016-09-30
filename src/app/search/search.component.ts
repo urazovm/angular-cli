@@ -1,4 +1,4 @@
-import {OnInit, Component} from '@angular/core';
+import {OnInit, Component, ViewChild} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {Router, Routes, ActivatedRoute } from '@angular/router';
 import {PaginationControlsCmp, PaginatePipe, Ng2PaginationModule} from 'ng2-pagination';
@@ -9,6 +9,7 @@ import {RoostService} from '../services/roost.service';
 import {UserService} from '../services/user.service';
 import {NotificationsService} from '../notifications/notifications.service';
 import {Roost} from '../shared/roost';
+import {Modal} from 'ng2-modal';
 
 @Component({
     selector: 'search',
@@ -19,6 +20,12 @@ export class SearchComponent extends ProfileFeed implements OnInit{
     searchQry: string;
     errorMessage: string;
     sub: any;
+    @ViewChild('userActionsModal') 
+    userActionsModal: Modal;
+    @ViewChild('commentsModal') 
+    commentsModal: Modal;
+    @ViewChild('detailModal') 
+    detailModal: Modal;
 
 constructor(private route: ActivatedRoute, 
     private roostService: RoostService,

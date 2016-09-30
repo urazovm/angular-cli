@@ -31,8 +31,8 @@ export class ProfileFeed implements OnInit{
     lists: any;
     displayList: boolean = false;
     displayListTitle: string;
-    @ViewChild('myModal')
-    myModal: Modal;
+    @ViewChild('userActionsModal')
+    userActionsModal: Modal;
     @ViewChild('commentsModal')
     commentsModal: Modal;
     @ViewChild('detailModal')
@@ -160,7 +160,7 @@ export class ProfileFeed implements OnInit{
                 this.displayList = true;
                 this.lists = lists.results;
                 this.displayListTitle = "Shout";
-                this.myModal.open();
+                this.userActionsModal.open();
                 });
         }
         else{
@@ -189,7 +189,7 @@ export class ProfileFeed implements OnInit{
                 this.displayList = true;
                 this.lists = lists.results;
                 this.displayListTitle = feed.type == 'PROMO' ? 'Reach' : 'Listen';
-                this.myModal.open();
+                this.userActionsModal.open();
                 });
         }
         else{

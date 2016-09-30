@@ -3,8 +3,11 @@ import {CommonModule} from '@angular/common';
 import {Routes, Router, RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http';
 import {FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MdCoreModule, MdUniqueSelectionDispatcher } from '@angular2-material/core';
+import {MdCardModule} from '@angular2-material/card';
 import {MdInputModule} from '@angular2-material/input';
-import {MdToolbar} from '@angular2-material/toolbar';
+import {MdRadioModule} from '@angular2-material/radio';
+import {MdToolbarModule} from '@angular2-material/toolbar';
 import {CacheService} from 'ng2-cache/ng2-cache';
 import {NotificationsService} from '../notifications/notifications.service';
 
@@ -14,7 +17,8 @@ import {User} from '../shared/user';
 
 @Component({
     templateUrl:'profile.html',
-    providers: [FormBuilder, User, UserService, HttpModule, CommonModule, FormsModule, MdInputModule, RouterModule]
+    providers: [FormBuilder, User, UserService, HttpModule, CommonModule, FormsModule, MdCoreModule, MdCardModule, 
+        MdInputModule, MdToolbarModule, MdRadioModule, MdUniqueSelectionDispatcher , RouterModule]
 })
 export class ProfileComponent implements OnInit{
     header = "Profile page";

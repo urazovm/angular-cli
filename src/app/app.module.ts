@@ -34,7 +34,7 @@ import {SimpleNotificationsModule} from './notifications/simple-notifications.mo
 import {FacebookService} from 'ng2-facebook-sdk/dist';
 
 import {CacheService} from 'ng2-cache';
-import {ModalModule } from 'ng2-modal';
+import {ModalModule} from 'ng2-modal';
 import {Ng2PaginationModule} from 'ng2-pagination';
 import {MdCoreModule} from '@angular2-material/core';
 import {MdInputModule} from '@angular2-material/input';

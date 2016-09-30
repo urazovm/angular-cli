@@ -11,7 +11,7 @@ import {HttpModule} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
-import {FacebookService, FacebookLoginResponse, FacebookInitParams} from 'ng2-facebook-sdk';
+import {FacebookService, FacebookLoginResponse, FacebookInitParams} from 'ng2-facebook-sdk/dist';
 import {CacheService} from 'ng2-cache/ng2-cache';
 
 
