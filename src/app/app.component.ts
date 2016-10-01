@@ -86,9 +86,9 @@ export class AppComponent implements OnInit{
             private _service: NotificationsService,
             private viewChild: ViewChild){
         let fbParams: FacebookInitParams = {
-                        appId: '1730242673902791',
+                        appId: '1682807852004621',
                         xfbml: true,
-                        version: 'v2.7'
+                        version: 'v2.5'
                     };
         this.fb.init(fbParams);
         if(null != this._cacheService.get('accessTokenRooster')){
