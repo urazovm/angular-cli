@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
 @Component({
-    templateUrl:'disclaimer.html',
+    templateUrl:'disclaimer.component.html',
     providers: [RouterModule]
 })
-export class DisclaimerComponent {
+export class Disclaimer {
     header = "Disclaimer page";
 }

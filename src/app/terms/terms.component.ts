@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
 @Component({
-    templateUrl:'terms.html',
+    templateUrl:'terms.component.html',
     providers: [RouterModule]
 })
-export class TermsComponent {
+export class Terms {
     header = "Terms page";
 }

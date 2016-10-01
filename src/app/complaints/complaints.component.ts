@@ -25,6 +25,8 @@ export class ComplaintsComponent extends ProfileFeed implements OnInit{
     commentsModal: Modal;
     @ViewChild('detailModal') 
     detailModal: Modal;
+    @ViewChild('loginModal')
+    loginModal: Modal;
     
     constructor(private _complaintsService: ComplaintsService, 
                 private _router: Router,

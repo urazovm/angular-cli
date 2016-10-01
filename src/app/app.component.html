@@ -29,10 +29,6 @@
         <div *ngIf="isUserLoggedIn==false" style="float:right; cursor:pointer">
             <a (click)="handleLogin()" class = "navbar-brand navbar-header-custom-right">Log In</a>
         </div>
-        <div *ngIf="isUserLoggedIn==false" style="float:right;">
-            <a [routerLink]="['signUp']" (click)="setActiveFlagsFalse()" 
-                class = "navbar-brand navbar-header-custom-right">Sign Up</a>
-        </div>
         <div *ngIf="isUserLoggedIn==true" style="float:right;cursor:pointer">
             <a (click)="logout();" 
                 class = "navbar-brand navbar-header-custom">Logout</a>
@@ -51,7 +47,11 @@
                         </a>
                         <div *ngIf="showNotifications==true" id="notificationContainer">
                         <div id="notificationTitle">Notifications</div>
-                        <div id="notificationsBody" class="notifications"></div>
+                        <div id="notificationsBody" class="notifications">
+                            <div *ngFor="let notify of notifications" class="notify">
+                                {{ notify.message }}
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -143,7 +143,9 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                      <router-outlet></router-outlet>
+                      <router-outlet
+                        (login)="login($event)"
+                      ></router-outlet>
                     </div>
                 </div>
             </div>
@@ -285,17 +287,29 @@
     </div>
     <!-- /#wrapper -->
     </div>
-    <!--<div class="loginModal">
+    <div class="loginModal">
     <modal #loginModal>
          <modal-header>
             <h4>&nbsp;Please login to continue</h4>
         </modal-header>
-        <modal-body>
-        </modal-body>
+        <modal-content>
+        </modal-content>
         <modal-footer>
-            <button class="btn btn-link btn-sg" (click)="handleLogin();loginModal.close();">Login</button>
+             <div class="buttonWrapper">
+                <button class="btn btn-lg btn-social btn-facebook" (click)="facebookLogin()">
+                        <i class="fa fa-facebook fa-fw"></i>Login with Facebook
+                </button>
+            </div>
+            <br/>
+            <div style="text-align: center;">(or)</div>
+            <br/>
+            <div class="buttonWrapper">
+                <button class="btn btn-primary btn-custom" name="submit" type="submit" (click)="loginMobile();">
+                    &nbsp;&nbsp;&nbsp;Login with Mobile&nbsp;&nbsp;&nbsp;
+                </button>
+            </div>
         </modal-footer>
     </modal>
-    </div>-->
+    </div>
 
     <simple-notifications [options]="options"></simple-notifications>

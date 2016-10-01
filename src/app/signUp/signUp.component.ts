@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {FormsModule,FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MdCoreModule, MdUniqueSelectionDispatcher } from '@angular2-material/core';
 import {MdInputModule} from '@angular2-material/input';
 import {MdToolbar} from '@angular2-material/toolbar';
 import { MdRadioModule } from '@angular2-material/radio';
@@ -20,7 +21,8 @@ declare const FB:any;
 @Component({
     selector: 'signUp',
     templateUrl: 'signUp.html',
-    providers: [FormBuilder, User, SessionService, HttpModule, FormsModule]
+    providers: [FormBuilder, User, SessionService, HttpModule, FormsModule, 
+        MdCoreModule, MdUniqueSelectionDispatcher, MdRadioModule, MdInputModule]
 })
 
 export class SignUpComponent implements OnInit {
@@ -31,6 +33,7 @@ export class SignUpComponent implements OnInit {
     form: FormGroup;
     response: any;
     signUp: boolean;
+    isFacebookSignUp: boolean;
   
     constructor(formBuilder: FormBuilder, 
         private sessionService: SessionService, 
@@ -58,6 +61,33 @@ export class SignUpComponent implements OnInit {
         });
     }
 
+    signUpMobile(){
+      this.sessionService.registerMobileUser(
+                    this.user.first_name, 
+                    this.user.last_name, 
+                    this.user.gender, 
+                    this.user.email, 
+                    this.parseDate(this.user.dob),
+                    this.user.mobile_number)
+                .subscribe(res => {
+                    this.response = res;
+                });
+            console.log(this.response);
+    }
+
+    imgChangeEvent(fileInput: any){
+        if (fileInput.target.files && fileInput.target.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e : any) {
+                $('#profilePic').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(fileInput.target.files[0]);
+        }
+    }
+
+
     statusChangeCallback(resp) {
       console.log(resp);
       this.sessionService.registerUser(resp.authResponse.userID, 
@@ -71,7 +101,7 @@ export class SignUpComponent implements OnInit {
                     this.response = res;
                 });
             console.log(this.response);
-    };
+    }
 
     parseDate(date: string){
         if(null != date){
@@ -79,4 +109,5 @@ export class SignUpComponent implements OnInit {
             return res[2] + "-" + res[1] + "-" + res[0]; 
         }
     }
+
 }

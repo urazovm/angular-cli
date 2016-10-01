@@ -23,11 +23,11 @@
       </p>
       <table style="width: 100%" cellspacing="0"><tr>
         <td><md-input class="demo-full-width" [(ngModel)] = "userProfile.email" name = "email" placeholder="Email" style="width:250"></md-input></td>
-        <td><md-input class="demo-full-width" [(ngModel)] = "userProfile.mobile_number" name = "mobile_number" placeholder="Mobile#"></md-input></td>
-        <td><md-input class="demo-full-width" [(ngModel)] = "userProfile.dob" name = "dob" placeholder="Date of Birth">
-              <md-hint align="end">dd/mm/yyyy</md-hint>
-          </md-input></td>
-      </tr></table>
+        <td><md-input class="demo-full-width" [(ngModel)] = "userProfile.mobile_number" name = "mobile_number" placeholder="Mobile#"></md-input></td> 
+      </tr>
+      <tr><td><div style="float: left; padding-right: 10px; padding-top: 20px;">Date of birth </div>
+              <div style="float: left; padding: 10px;"><datepicker [(ngModel)]="userProfile.dob" [expanded]="true" name="cal"></datepicker></div></td></tr>
+      </table>
       <br/>
       <br/>
       <br/>

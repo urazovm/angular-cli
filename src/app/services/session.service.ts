@@ -56,6 +56,24 @@ export class SessionService {
             .map(res => res.json());
     }
 
+    registerMobileUser(first_name: string, 
+            last_name: string, 
+            gender: number, 
+            email: string, 
+            dob: string, 
+            mobile: string,
+            profile_image?: string): Observable<any>{
+        return this._http.post(this._url + "register", 
+                JSON.stringify({name: first_name, surname: 
+                    last_name, 
+                    email: email, 
+                    dob: dob, 
+                    gender: gender, 
+                    mobile_number: mobile}), 
+                    this.getRequestOptions())
+            .map(res => res.json());
+    }
+
     loginUser(facebook_id: string, 
             facebook_token: string): Observable<any>{
         return this._http.post(this._url + "register", JSON.stringify({facebook_id: facebook_id, 

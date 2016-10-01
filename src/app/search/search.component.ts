@@ -26,6 +26,8 @@ export class SearchComponent extends ProfileFeed implements OnInit{
     commentsModal: Modal;
     @ViewChild('detailModal') 
     detailModal: Modal;
+    @ViewChild('loginModal')
+    loginModal: Modal;
 
 constructor(private route: ActivatedRoute, 
     private roostService: RoostService,

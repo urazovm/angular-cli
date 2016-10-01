@@ -22,6 +22,8 @@ export class HomeComponent extends ProfileFeed implements OnInit{
     commentsModal: Modal;
     @ViewChild('detailModal') 
     detailModal: Modal;
+    @ViewChild('loginModal')
+    loginModal: Modal;
 
     constructor(private roostService: RoostService,
             private cacheService: CacheService,

@@ -14,6 +14,7 @@ import {Widget} from './shared/widget';
 import {Roost} from './shared/roost';
 import {Tag} from './shared/tag';
 import {GoogleplaceDirective} from './directives/googleplace.directive';
+import {ModalModule, Modal} from 'ng2-modal';
 
 import {NotificationsService} from './notifications/notifications.service';
 import {SimpleNotificationsComponent} from './notifications/simple-notifications.component';
@@ -24,7 +25,7 @@ const URL = "http://52.43.46.127:80/api/roost";
     selector: 'my-app',
     templateUrl: 'app.component.html',
     providers: [UserService, RoostService, SessionService, HttpModule,
-        RouterModule, FacebookService, SideNavDisplay, Widget, Roost, ViewChild],
+        RouterModule, FacebookService, SideNavDisplay, Widget, Roost, ViewChild, ModalModule],
     styles: ['app.component.css']
 })
 export class AppComponent implements OnInit{
@@ -53,6 +54,8 @@ export class AppComponent implements OnInit{
     latitude: any;
     longitude: any;
     title: string = "Please login to continue";
+    @ViewChild('loginModal')
+    loginModal: Modal;
     
 
     options = {
@@ -98,7 +101,7 @@ export class AppComponent implements OnInit{
                 .subscribe(notifications => {
                     console.log(notifications);
                     this.notificationCount = notifications.count;
-                    this.notifications = notifications.results as string[];
+                    this.notifications = notifications.results;
             });
         }
     }
@@ -179,7 +182,24 @@ export class AppComponent implements OnInit{
         }
     }
 
+    login(login: number)
+    {
+        console.log("Got here");
+    }
     handleLogin(): void {
+        this.loginModal.open();
+    }
+
+    facebookLogin(){
+        this.loginModal.close();
+        this.handleFacebookLogin();
+    }
+
+    loginMobile(){
+
+    }
+
+    handleFacebookLogin(){
         this.fb.login().then(
         (response: FacebookLoginResponse) => {
             this._cacheService.set('userIdFB', response.authResponse.userID);

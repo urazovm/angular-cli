@@ -25,6 +25,8 @@ export class PromotionsComponent extends ProfileFeed implements OnInit{
     commentsModal: Modal;
     @ViewChild('detailModal') 
     detailModal: Modal;
+    @ViewChild('loginModal')
+    loginModal: Modal;
     
     constructor(private _promotionService: PromotionsService, 
                 private _router: Router,

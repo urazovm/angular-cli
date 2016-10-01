@@ -148,13 +148,18 @@
 #notificationTitle
 {
     font-weight: bold;
+    font-size: 16px;
     padding: 8px;
-    font-size: 13px;
-    background-color: #ffffff;
+    height: 40px;
+    background-color: inherit;
+    color: inherit;
     position: fixed;
     z-index: 1000;
-    width: 245px;
-    border-bottom: 1px solid #dddddd;
+    width: 248px;
+    z-index: 5;
+    -webkit-box-shadow: 0px 2px 4px grey;
+       -moz-box-shadow: 0px 2px 4px grey;
+            box-shadow: 0px 2px 4px grey;
 }
 
 #notificationsBody
@@ -908,8 +913,7 @@ a {
 }
 
 .loginModal .modal-content{
-    width: 300px;
-    height: 120px;
+    width: 400px;
 }
 
 .loginModal .modal-header{
@@ -925,9 +929,10 @@ a {
 }
 
 .loginModal .modal-footer{
+    clear: both;
     text-align: center;
-    height: 40px;
     padding: 20px;
+    height: 200px;
 }
 
 
@@ -1107,3 +1112,23 @@ a {
 {
     clear: both;
 }/* You can add global styles to this file, and also import other style files */
+
+.btn-custom{
+    font-size: 16px;
+    font-weight:bold;   
+}
+
+.notify{
+    padding-top: 20px;
+    padding-left: 10px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    min-height: 20px;
+    max-height: 40px;
+    overflow: hidden;
+    z-index: 5;
+    -webkit-box-shadow: 0px 0px 1px lightgrey;
+       -moz-box-shadow: 0px 0px 1px lightgrey;
+            box-shadow: 0px 0px 1px lightgrey;
+}

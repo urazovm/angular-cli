@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
 @Component({
-    templateUrl:'privacy.html',
+    templateUrl:'privacy.component.html',
     providers: [RouterModule]
 })
-export class PrivacyComponent {
+export class Privacy {
     header = "Privacy page";
 }
