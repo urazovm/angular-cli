@@ -33,9 +33,7 @@ const appRoutes: Routes = [
     { path:	'info/faq', component: Faq },
     { path:	'info/privacy', component: Privacy },
     { path:	'info/terms', component: Terms },
-    { path:	'', component: LandingComponent },
-    { path:	'/', component: LandingComponent },
-    { path:	'*', component: LandingComponent }  
+    { path:	'', component: LandingComponent }  
 ];
 
 export const appRoutingProviders: any[] = [
