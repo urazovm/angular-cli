@@ -1,5 +1,5 @@
 {
-  "name": "rooster",
+  "name": "roost",
   "version": "0.0.0",
   "license": "MIT",
   "angular-cli": {},
@@ -25,11 +25,7 @@
     "@angular2-material/input": "^2.0.0-alpha.8-2",
     "@angular2-material/radio": "^2.0.0-alpha.8-2",
     "@angular2-material/toolbar": "^2.0.0-alpha.8-2",
-    "angular2-modal": "^2.0.0-beta.13",
-    "angular2-notifications": "^0.4.3",
     "core-js": "^2.4.1",
-    "ng2-bootstrap": "^1.1.5",
-    "ng2-bs3-modal": "^0.10.3",
     "ng2-cache": "^0.1.4",
     "ng2-datepicker": "^1.0.9",
     "ng2-facebook-sdk": "^0.1.5",
