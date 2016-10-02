@@ -1,1 +1,1134 @@
-/* You can add global styles to this file, and also import other style files */
+.navbar-rooster{
+    background-color:  #FF4C44;
+}
+
+.navbar-default .navbar-header-custom{
+   color: white
+}
+
+.navbar-default .navbar-header-custom:hover{
+   color: antiquewhite;
+}
+
+.navbar-default .navbar-header-custom-right{
+    float: right;
+    color: white;
+}
+
+.navbar-default .navbar-header-custom-right:hover{
+    color: antiquewhite;
+}
+
+.navbar-default .logo{
+    padding: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+    max-width: 100%;
+    height: 50px;
+    width: 50px; /* ie8 */
+}
+
+.btn-custom{
+    padding-top: 6px;
+}
+
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.search-custom{
+    opacity: 0.75;
+}
+
+.search-icon-custom{
+    color: white;
+    cursor: help;
+}
+
+.navbar-form .search-bar-custom{
+    color: grey;
+    opacity: 0.75;
+    width: 320px;
+    cursor: help;
+}
+
+.nav{
+    list-style:none;margin: 0px;padding: 0px;
+}
+
+#nav li {
+    float: left;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight:bold;
+}
+
+#nav li a{
+    color:#333333;
+    text-decoration:none
+}
+
+#nav li a:hover{
+    color:#006699;
+    text-decoration:none
+}
+
+.login{
+    float: right;
+    color: white;
+    padding: 15px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+
+.userDetailsDiv img{
+    float: left;
+    max-width: 40px;
+    height: auto;
+}
+
+.notification-custom{
+    padding-top: 15px;
+    padding-right: 25px;
+    color: white;
+    font-size: 20px;
+}
+
+#notification_li
+{
+    position: relative;
+    float: left;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+#notificationContainer 
+{
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
+    overflow: visible;
+    position: absolute;
+    top: 48px;
+    margin-left: -200px;
+    width: 250px;
+    z-index: -1;
+}
+
+#notificationContainer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 10px solid black;
+    border-color: transparent transparent white;
+    margin-top: -20px;
+    margin-left: 200px;
+}
+
+#notificationTitle
+{
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px;
+    height: 40px;
+    background-color: inherit;
+    color: inherit;
+    position: fixed;
+    z-index: 1000;
+    width: 248px;
+    z-index: 5;
+    -webkit-box-shadow: 0px 2px 4px grey;
+       -moz-box-shadow: 0px 2px 4px grey;
+            box-shadow: 0px 2px 4px grey;
+}
+
+#notificationsBody
+{
+    padding: 33px 0px 0px 0px !important;
+    min-height:300px;
+}
+
+#notificationFooter
+{
+    background-color: #e9eaed;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+    border-top: 1px solid #dddddd;
+}
+
+#notification_count 
+{
+    font-weight: bold;
+    border-radius: 5px;
+    /*border: solid wheat;*/
+    width: 15px;
+    background: white;
+    color: red;
+    /*-moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;*/
+    position: absolute;
+    font-size: 10px;
+    margin-top: 10px;
+    margin-left: -10px;
+    text-align: center;
+}
+
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    padding-top: 20px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    padding-top:320px;
+    padding-left: 5px;
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -225px;
+    overflow-y: auto;
+    background: #fff;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background-color: #F4F4F4;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 225px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -225px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 25px;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+    border-top-left-radius: 3px;    
+    border-top-right-radius: 3px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: black;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+
+.side-nav-icon{
+    width: 30px;   
+    height: 20px;
+    padding-right: 10px;
+}
+
+.active{
+    background-color: #E8E8E8;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-left-color: #FF4C44;
+}
+
+@media(min-width:668px) {
+    #wrapper {
+        padding-left: 200px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 200px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+.spinner-custom{
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: cornflowerblue;
+}
+
+.profile-feed{
+    float:left; 
+    width: 48%;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 1px lightgrey; 
+    background-color: white;
+    position: relative;
+}
+
+.tags-div{
+    clear: both;
+    height: 18px;
+}
+
+.tags{
+    float:left;
+    margin-right: 5px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    color: grey;
+    font-size: 10;
+}
+
+#location-div{
+    clear: both;
+    text-align: center;
+    cursor: pointer; cursor: hand;
+}
+
+#location{
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-bottom: 10px;
+}
+
+#location img{
+    padding-bottom: 2%;
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+#location-address{
+    float: left;
+    font-size: 10px;
+}
+
+#date{
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    color: slategrey;
+    font-size: 10px;
+}
+
+#date img{
+    width: 15px;
+    height: 15px;
+}
+
+#media-div{
+    clear: both;
+    width: 100%;
+    height: 35vh;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#media-div img{ 
+    padding-bottom: 2%;
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+#media-div video{ 
+    padding-bottom: 2%;
+    width: 100%;
+    height: 35vh;
+    object-fit: cover;
+}
+
+#media-div .videoContainer{
+    position: relative;
+}
+
+#media-div .videoContainer .player-buttons{
+    background: url(/assets/play_icon.png) center center no-repeat;
+    height: 128px;
+    left: 50%;
+    margin: -64px 0 0 -64px;
+    position: absolute;
+    top: 50%;
+    width: 128px;
+    z-index: 1; 
+    cursor: pointer;
+    -moz-transform:scale(0.5);
+    -webkit-transform:scale(0.5);
+    transform:scale(0.5);
+}
+
+#media-div audio{ 
+    padding-bottom: 2%;
+    width: 100%;
+    height: 35vh;
+    object-fit: cover;
+}
+
+
+.audio{
+    background-image: url("/assets/audio_thumb.jpg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
+
+#profileText{
+    clear: both;
+    padding-top: 5px;
+    height: 45px;
+    overflow: hidden; 
+}
+
+#Comments{
+    clear: both;
+    text-align: left;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: -15px;
+    color: #0060B6;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+.commentDiv{
+    float: left;
+    padding: 5px;
+}
+
+#icons{
+    clear: both;
+    margin-top: -10px; 
+}
+
+.icon{
+    float: left;
+    padding-right: 30px;
+}
+
+.icon img{
+    height: 20px;
+    width: 20px;
+}
+
+.icon_share{
+    float: right;
+}
+
+.icon_share img{
+    height: 20px;
+    width: 20px;
+}
+
+.searchResults{
+    text-align: center;
+    color: grey;
+    font: 25px;
+    font-weight: bold;
+}
+
+#outPopUp {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  z-index: 15;
+  top: 300px;
+  left: 500px;
+  margin: -100px 0 0 -150px;
+  background: white;
+  border-style: solid;
+  border-color: lightgray;
+}
+
+.navbar-list{
+    height: 30px;
+    background-color: lightgray;
+    color: grey;
+}
+
+.list-header{
+    color: grey;
+}
+
+.navbar-widget{
+    height: 45px;
+    background-color: black;
+    color: white;
+}
+
+
+#widget_div
+{
+    position:fixed;
+}
+
+#widgetContainer 
+{
+    background-color: #fff;
+    overflow: visible;
+    position: fixed;
+    bottom:1px;
+    right: 100px;
+    height: 600px;
+    width: 400px;
+    z-index: 10;
+}
+
+#widgetContainer:before {
+    position: fixed;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border-color: transparent transparent white;
+    margin-top: -20px;
+}
+
+.createWidget{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#widgetButtonPlus{
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+}
+
+#widgetButtonCross{
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+}
+
+#widgetButtonPromotion{
+    position: fixed;
+    right: 25px;
+    bottom: 175px;
+}
+
+#widgetButtonComplaint{
+    position: fixed;
+    right: 25px;
+    bottom: 125px;
+}
+
+
+.btn-circle.btn-xl {
+  width: 40px;
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.33;
+  border-radius: 20px;
+}
+
+.btn-noBorder{
+    border: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.navbar-complaint{
+    background-color:  black;
+    color: white;
+}
+
+.navbar-widget-custom{
+    height: 45px;
+    min-height: 45px;
+    background-color: black;
+}
+
+.widget-header{
+    float: left;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.widget-close{
+    float: right;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+.formDiv{
+    clear: both;
+    padding-top: 20px;
+}
+
+.widget-control{
+    border: none;
+    height: 50px;
+    text-indent: 50px; 
+}
+
+.formImg{
+    float: left;
+    padding-left: 80px; 
+    width: 25%;
+    height: 100px;
+}
+.formImgText{
+    clear: both;
+    font-family: inherit;
+    text-align: right;
+    padding: 10px;
+    color: lightgrey;
+}
+
+.complaint-title{
+    background: url(/assets/icon_tf_subject.png) no-repeat scroll 5px 5px;
+    background-size: 20px 20px;
+    background-position: 20px 20px;
+}
+
+.form-location{
+    background: url(/assets/icon_tf_location.png) no-repeat scroll 5px 5px;
+    background-size: 20px 20px;
+    background-position: 20px 20px;
+}
+
+.form-tags{
+    background: url(/assets/icon_tf_tags.png) no-repeat scroll 5px 5px;
+    background-size: 20px 20px;
+    background-position: 20px 20px;
+}
+
+.form-complaint-desc{
+    background: url(/assets/icon_tf_subject.png) no-repeat scroll 5px 5px;
+    background-size: 20px 20px;
+    background-position: 20px 20px;
+    height: 80px;
+}
+
+.actionForm{
+    text-align: center;
+    padding-left: 80px;
+    padding-top: 40px;
+}
+
+.form-action{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
+    border: none;
+    width: 200px;
+    height: 50px;
+    padding: 20px;
+}
+
+.widget-icon{
+    width: 30px;
+    height: auto;
+}
+
+.btn-widget
+{
+    width: 200px;
+}
+
+.widget-button
+{
+    text-align: center;
+    padding: 20px;
+}
+
+body { 
+    padding: 30px;
+    background-color: #F4F4F4;
+    color: #999999; 
+}
+
+
+.registerWrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+}
+
+.buttonWrapper{
+    text-align: center;
+}
+
+.asteriskField{
+    color: red;
+}
+
+.labelDiv{
+    float: left;
+}
+.switchDiv{
+    float: left;
+    padding-top: 2px;
+    padding-left: 20px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  /*left: 2px;*/
+  /*bottom: 4px;*/
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.display-true{
+    display: block;
+}
+
+#landingVideo{
+    clear: both;
+    padding-left: -80px;
+    width: 90%;
+    height: 90%;
+    overflow: visible;
+}
+
+#landingVideo video{ 
+    padding-bottom: 2%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+md-toolbar.md-primary {
+    background: #009688;
+    color: white;
+    height: 20px;
+}
+
+md-toolbar {
+    min-height: 20px;
+}
+
+a {
+    cursor: pointer;
+}
+
+.infoLink{
+    clear: both;
+    color: black;
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.infoLink a{
+    color: black;
+}
+
+.previewDiv{
+    width: 100%;
+    height: 220px;
+    padding: 5px;
+    align-content: center;
+    overflow: hidden;
+}
+
+.previewDiv img{
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    overflow: hidden;
+}
+
+.previewDiv video{
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    overflow: hidden;
+}
+
+.previewDiv audio{
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    overflow: hidden;
+}
+
+.widgetInput{
+    clear: both;
+}
+
+.profilePic{
+    border-radius: 50%;
+    overflow: hidden;
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.loginModal .modal-content{
+    width: 400px;
+}
+
+.loginModal .modal-header{
+    height: 50px;
+    font-size: 20px;
+    background-color:  #FF4C44;
+    color: white;
+    padding: 5px;
+}
+
+.loginModal .modal-body{
+    display: none;
+}
+
+.loginModal .modal-footer{
+    clear: both;
+    text-align: center;
+    padding: 20px;
+    height: 200px;
+}
+
+
+.userActionsModal .modal-content{
+    width: 400px;
+}
+
+.userActionsModal .modal-header{
+    height: 50px;
+    font-size: 20px;
+    background-color:  #FF4C44;
+    color: white;
+    padding: 5px;
+}
+
+.userActionsModal .modal-body{
+    clear: both;
+    color: inherit;
+    font: 12px;
+    min-height: 200px;
+}
+
+.userActionsModal .modal-footer{
+    clear: both;
+    display: none;
+}
+
+.userActionsDiv{
+    clear: both;
+}
+
+.userDetails{
+    float: left;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+}
+
+
+.commentsModal .modal-content{
+    width: 500px;
+}
+
+.commentsModal .modal-header{
+    height: 50px;
+    font-size: 20px;
+    background-color:  #FF4C44;
+    color: white;
+    padding: 5px;
+}
+
+.commentsModal .modal-body{
+    color: inherit;
+    font: 12px;
+    min-height: 300px;
+}
+
+.commentsModal .modal-footer{
+    clear: both;
+    text-align: center;
+}
+
+.commentsModal .comment{
+    width: 360px;
+    padding: 10px;
+}
+
+.comments-modal-div{
+    clear: both;
+}
+
+.commentImg{
+    padding-top: 10px;
+    float: left;
+}
+
+.commentDetails{
+    float: left;
+    padding: 10px;
+}
+
+.commentImg img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.comment-date{
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    color: slategrey;
+    font-size: 10px;
+    padding: 10px;
+}
+
+.comment-name{
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+}
+
+.detailModal .modal-header{
+    height: 50px;
+    font-size: 20px;
+    background-color:  #FF4C44;
+    color: white;
+    padding: 5px;
+}
+
+.detailModal .modal-content{
+    border: none;
+}
+
+.detailModal .modal-footer{
+    clear: both;
+    text-align: center;
+}
+
+.detail-profile-feed{
+    float:left; 
+    width: 100%;
+    background-color: white;
+}
+
+.detailsLabel{
+    clear: both;
+    color: black;
+    padding-top: 5px;
+    float: left;
+}
+
+.detailTitle{
+    clear: both;
+    color: black;
+    float:left;
+}
+
+.profileDetailText{
+    clear: both;
+    padding-top: 5px;
+    height: 45px;
+    overflow: hidden; 
+}
+
+.userDetailsDiv{
+    clear: both;
+    padding: 5px;
+}
+
+.userDetailsDiv .userDetailsImg{
+    float: left;
+}
+
+.userDetailsDiv .userDetailsImg img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.commentsDiv{
+    clear: both;
+    padding: 5px;
+}
+
+.commentDetail{
+    clear: both;
+}
+
+.addCommentDetail 
+{
+    width: 400px;
+    padding: 10px;
+}
+
+.alignNewLine
+{
+    clear: both;
+}/* You can add global styles to this file, and also import other style files */
+
+.btn-custom{
+    font-size: 16px;
+    font-weight:bold;   
+}
+
+.notify{
+    padding-top: 20px;
+    padding-left: 10px;
+    font: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    min-height: 20px;
+    max-height: 40px;
+    overflow: hidden;
+    z-index: 5;
+    -webkit-box-shadow: 0px 0px 1px lightgrey;
+       -moz-box-shadow: 0px 0px 1px lightgrey;
+            box-shadow: 0px 0px 1px lightgrey;
+}
